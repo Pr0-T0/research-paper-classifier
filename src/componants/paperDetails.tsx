@@ -6,7 +6,6 @@ type PaperDetailsProps = {
 
 export default function PaperDetails({
   title,
-  abstract,
   pages
 }: PaperDetailsProps) {
 
@@ -24,20 +23,20 @@ export default function PaperDetails({
         <div className="space-y-8">
           {/* TITLE */}
           <div>
-            <h2 className="text-2xl lg:text-3xl font-bold text-zinc-100 leading-tight max-w-4xl text-center">
+            <h2 className="text-2xl lg:text-2xl font-bold text-zinc-100 leading-tight max-w-4xl text-center">
               {title || "< No title available >"}
             </h2>
           </div>
           {/* DETAILS GRID */}
           <div className="space-y-6">
-            <div className="grid grid-cols-[140px_1fr] gap-6">
+            {/* <div className="grid grid-cols-[140px_1fr] gap-6">
               <h3 className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium">
                 ABSTRACT
               </h3>
               <p className="text-zinc-300 leading-7">
                 {abstract || "< No abstract available >"}
               </p>
-            </div>
+            </div> */}
             {/* PAGES */}
             <div className="grid grid-cols-[140px_1fr] gap-6">
 

@@ -13,7 +13,7 @@ export default function PredictedCategories({
   const topPrediction = predictions[0];
 
   return (
-    <section className="w-full max-w-4xl rounded-2xl p-6 text-white shadow-2xl">
+    <section className="w-full max-w-4xl rounded-2xl p-6 text-white  shadow-2xl">
       <h2 className="mb-6 text-sm tracking-[0.35em] text-cyan-300 uppercase">
         Predicted Categories
       </h2>

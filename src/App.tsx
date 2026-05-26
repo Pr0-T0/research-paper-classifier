@@ -3,6 +3,13 @@ import Header from "./componants/header"
 import HeroSection from "./componants/heroSection"
 import PaperModel from "./componants/paperModel";
 
+type SimilarPaper = {
+  title: string;
+  category: string;
+  similarity: number;
+  summary: string;
+};
+
 
 type paperData = {
   title?: string;
@@ -16,6 +23,8 @@ type paperData = {
     feature: string;
     weight: number;
   }[];
+
+   similar_papers?: SimilarPaper[];
 }
 function App() {
   //states
@@ -55,7 +64,18 @@ function App() {
       );
       const data = await response.json();
 
-      console.log(data);
+      //similar papers request
+      const similarResponse = await fetch(
+        "http://127.0.0.1:8000/similar-papers",
+        {
+          method: "POST",
+          headers: {"Content-Type": "application/json",},
+          body: JSON.stringify({
+            query: payload
+          })
+        }
+      );
+      const similarData = await similarResponse.json();
 
       setPaperData({
         ...tempPaperData,
@@ -63,6 +83,7 @@ function App() {
         confidence: data.confidence,
         scores: data.scores,
         explanation: data.explanation,
+        similar_papers: similarData.similar_papers
       });
     }
 

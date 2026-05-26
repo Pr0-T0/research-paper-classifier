@@ -2,6 +2,12 @@ import Explanation from "./explanation";
 import Keywords from "./keywords";
 import PaperDetails from "./paperDetails";
 import PredictedCategories from "./predictedCategories";
+import SimilarPapers from "./similarPapers";
+
+type SimilarPaper = {
+  title: string;
+  similarity: number;
+};
 
 type paperData = {
   title?: string;
@@ -15,6 +21,8 @@ type paperData = {
     word: string;
     weight: number;
   }[];
+
+  similar_papers? : SimilarPaper[];
 };
 
 type HeroSectionProps = {
@@ -74,6 +82,9 @@ export default function HeroSection({
                   : []
               }
             />
+          </div>
+          <div>
+            <SimilarPapers papers={data.similar_papers || []}/>
           </div>
         </div>
 
